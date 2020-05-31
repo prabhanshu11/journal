@@ -6,20 +6,22 @@ index = {"properties": "01_Tasks.ipynb",
          "defaults": "01_Tasks.ipynb",
          "Task": "01_Tasks.ipynb",
          "t": "01_Tasks.ipynb",
+         "str2timeDelta": "01_Tasks.ipynb",
+         "args_map": "01_Tasks.ipynb",
          "task_scheduler": "01_Tasks.ipynb",
-         "multi_input": "questions.ipynb",
-         "clear_screen": "questions.ipynb",
-         "enumerator": "questions.ipynb",
-         "essentials": "questions.ipynb",
-         "work": "questions.ipynb",
-         "a": "questions.ipynb",
-         "selections": "questions.ipynb",
-         "distractions": "questions.ipynb"}
+         "multi_input": "02_questions.ipynb",
+         "clear_screen": "02_questions.ipynb",
+         "enumerator": "02_questions.ipynb",
+         "essentials": "02_questions.ipynb",
+         "work": "02_questions.ipynb",
+         "a": "02_questions.ipynb",
+         "selections": "02_questions.ipynb",
+         "distractions": "02_questions.ipynb"}
 
 modules = ["core.py",
            "tasks.py",
-           "tests.py",
-           "questions.py"]
+           "questions.py",
+           "tests.py"]
 
 doc_url = "https://Prabhanshu.github.io/Journal/"
 
