@@ -5,10 +5,12 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 index = {"properties": "01_Tasks.ipynb",
          "defaults": "01_Tasks.ipynb",
          "Task": "01_Tasks.ipynb",
-         "t": "01_Tasks.ipynb",
-         "str2timeDelta": "01_Tasks.ipynb",
+         "str2timeDelta": "11_Tasks.ipynb",
          "args_map": "01_Tasks.ipynb",
-         "task_scheduler": "01_Tasks.ipynb",
+         "task_scheduler": "11_Tasks.ipynb",
+         "estimated_time": "11_Tasks.ipynb",
+         "actual_time": "11_Tasks.ipynb",
+         "satisfaction": "11_Tasks.ipynb",
          "multi_input": "02_questions.ipynb",
          "clear_screen": "02_questions.ipynb",
          "enumerator": "02_questions.ipynb",
@@ -16,12 +18,14 @@ index = {"properties": "01_Tasks.ipynb",
          "work": "02_questions.ipynb",
          "a": "02_questions.ipynb",
          "selections": "02_questions.ipynb",
-         "distractions": "02_questions.ipynb"}
+         "distractions": "02_questions.ipynb",
+         "time_abbreviation": "11_Tasks.ipynb"}
 
 modules = ["core.py",
            "tasks.py",
            "questions.py",
-           "tests.py"]
+           "tests.py",
+           "tasks_new.py"]
 
 doc_url = "https://Prabhanshu.github.io/Journal/"
 

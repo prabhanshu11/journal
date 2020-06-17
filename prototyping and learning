@@ -1,0 +1,171 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  2 02:33:58 2020
+
+@author: prabhanshu
+"""
+from datetime import date, time, timedelta
+from dataclasses import dataclass, field
+from typing import *
+from math import pi
+import re, textwrap
+# estd_time, actual_time, notes, eff_satisfaction
+@dataclass #change the repr later
+class DayOfTask():
+    day: int = 1
+    estd_time: timedelta = None
+    actual_time: timedelta = timedelta(0)
+    notes: str = None
+    eff_satisfaction: int = None
+    completed: bool = False
+    
+class Task():
+    """Class to act as a database. It can read and create a task object from a DB.
+    It can also write those changes.
+    """
+    days = []
+    
+    def __init__(self, task_string, day=DayOfTask()):
+        self.task_string = task_string
+        self.day = day
+        if self.day.day == 1 :
+            self.days = [self.day]
+        elif len(self.days) == self.days[-1].day :
+            current_day = len(self.days)
+            self.days.append(DayOfTask(current_day+1))
+       
+    def new_day(self):
+        if len(self.days) == self.days[-1].day :
+            current_day = len(self.days)
+            self.days.append(DayOfTask(current_day+1))
+    def __repr__(self):
+        return f"""task: {self.task_string}
+day: {self.days}
+"""        
+    @classmethod
+    def from_task_string(cls, task_string):
+        print(task_string)
+        estd_time = input("How much time do you think this would take ?\n")
+        notes = input("Do you want to add any notes? \n")
+        cls.day = DaytOfTask(day=1, estd_time=estd_time, notes=notes)
+        return cls(task_string, cls.day)
+    
+#    @classmethod
+#    def from_db(cls, 
+#                date: datetime.date = date.today(), 
+#                #all_entries_after_date: bool = False,
+#                ):
+#        pattern = re.compile(r"""
+#                             
+#                             """,re.VERBOSE)
+#        with open('test', 'r') as f:
+#        data = f.readlines()
+#        for line_no_in_reverse, line in data[::-1]:
+#            
+    
+    @staticmethod
+    def wrap(text, width=80,subsequent_indent=4): 
+        return textwrap.fill(text=text, width=width,
+                         initial_indent="\u2022 ", #bullet
+                         subsequent_indent=(subsequent_indent*'\t'+'  '))
+    
+    def forDB(self):
+        if (len(self.days)==1 and 
+            self.days[0].day == 1 and 
+            self.days[0].actual_time == timedelta(0)):
+            return f'''
+  [Part]   {t.task_string}
+  Day: 1   Estimated Time: {t.days[0].estd_time}        Actual Time: [--only-initialization-done--]
+            Notes for future/ reasons for not finishing:
+               {Task.wrap(t.days[0].notes, width=50)}   
+        '''
+            
+        
+x = 'Comlete problem 7 on Hacker rank'
+t = Task(x)
+t.days[0].notes=7*x
+                 
+from pprint import pprint
+with open('test','r+') as f:
+    #data_readlines = f.readlines()
+    #data_read = f.read()
+    #f.seek
+    #pprint(data_readlines)
+
+#    print([i for i in f])
+    f.write(t.forDB())        
+    f.seek(64)
+    print(f.tell())
+    locater()
+    f.seek(6)
+    print(f.tell())
+    locater()
+    
+
+def locater():
+    f.write('.<<HERE<<')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#@dataclass
+#class Calc2:
+#    
+#    kWhr: float
+#    avg_kW: float = 2.5
+#    
+#    peak_kW = 5
+#    density = 7500
+#    H: ClassVar[float] = 5
+#    HtoD: ClassVar[float] = 1
+#    
+#    def __post_init__(self):
+#        self.e = self.kWhr*3600
+#        self.W = self.e/self.H 
+#        self.m = self.W/9.8066
+#        self.Dia = (4 * self.e /(
+#                self.HtoD * self.H * self.density * 9.8066 * pi))**(1/3)
+#        self.h = self.Dia * self.HtoD
+#        self.rate = self.peak_kW * 1000000 /(
+#                self.density * 3.1415 * (self.Dia**2) * self.h/4*9.8066)
+#        self.avg_rate = self.avg_kW*1000000/(
+#                self.density * 3.1415 * (self.Dia**2) * self.h/4*9.8066)
+#    def show(self):
+#        print( 
+#            f"""Units of Electricity (kWhr) = {self.kWhr}
+#Mass of the dead weight = {self.m:.1f}kg and Weight = {self.W:.0f} Newton
+#Diameter = {self.Dia*100:.2f}cm     ;   Height = {self.h*100:.2f}cm
+#Peak descend rate = {self.rate:.3f}mm/s
+#Average descend = {self.avg_rate:.3f}mm/s""")

@@ -94,11 +94,6 @@ def essentials():
     return slpt_at, woke_at, meals, mditate, exrcise
 
 # Cell
-clear_screen()
-print('\nWell this completes the essentials.')
-print('Now lets get to the questions about Deep Work\n\n')
-
-# Cell
 def work():
     print("Lets get to tasks")
     print("Following is the list of distractions")

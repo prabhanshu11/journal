@@ -1,0 +1,22 @@
+---Distractions---
+as of 05/06/2020
+No. String
+1   Lorem ipsum 001
+2   Lorem ipsum 002
+3   Lorem ipsum 003
+4   Lorem ipsum 004
+
+# let say on 5th, I had 4 distractions, of which 2 and 3 were converted into tasks so they should no longer be on the distractions list and no 4 is a very long paragraph, so it should just be referenced to 5th.
+
+as of 06/06/2020
+No. String
+1   Lorem ipsum 001
+2   4 on 05/06/2020
+3   Lorem ipsum 005 #Lets say this string was set to a reminder.
+
+
+
+
+---Reminders-----
+setDate   remDate   remTime String
+06/06/20  30/06/20  1300    3 on 06/06/2020

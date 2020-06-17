@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="Journaling" FOLDED="false" ID="ID_303293361" CREATED="1589325442482" MODIFIED="1589640647100">
 <font SIZE="18"/>
-<hook NAME="MapStyle" zoom="0.829">
+<hook NAME="MapStyle" zoom="0.685">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
 
 <map_styles>
@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="14" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="15" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="App Design" POSITION="right" ID="ID_1543399624" CREATED="1589325504109" MODIFIED="1589946198702">
 <edge COLOR="#ff0000"/>
 <font NAME="Noto Sans"/>
@@ -83,10 +83,41 @@
 <node TEXT="A text file is generated which looks like a Journal Entry. Some pretty progress bars are also made." ID="ID_1822688880" CREATED="1589325688322" MODIFIED="1589946198710">
 <font NAME="Noto Sans"/>
 </node>
-<node TEXT="Cumulative progress graphic" ID="ID_327838902" CREATED="1589325746594" MODIFIED="1589946198711">
+<node TEXT="Cumulative progress graphic" FOLDED="true" ID="ID_327838902" CREATED="1589325746594" MODIFIED="1589946198711">
 <font NAME="Noto Sans"/>
 <node TEXT="Graphic is overlayed on the wallpaper" ID="ID_445767103" CREATED="1589325807216" MODIFIED="1589946198711">
 <font NAME="Noto Sans"/>
+</node>
+</node>
+<node TEXT="Use dateutil library later to parse datetimes to include better support for timedeltas" ID="ID_1277565481" CREATED="1590869790806" MODIFIED="1590869838228"/>
+<node TEXT="Task class and functions" ID="ID_1214645388" CREATED="1591144754182" MODIFIED="1591144781843">
+<node TEXT="Task scheduler func" ID="ID_651416275" CREATED="1591144781852" MODIFIED="1591144854804"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Asks for the date of task to be done. Gives option between, today, relative and date
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="In case task not done on that day" ID="ID_877841382" CREATED="1591144854938" MODIFIED="1591144886430"><richcontent TYPE="DETAILS">
+
+<html>
+  
+
+  <head>
+
+  </head>
+  <body>
+  </body>
+</html>
+</richcontent>
+<node TEXT="" ID="ID_723886689" CREATED="1591144909014" MODIFIED="1591144909014"/>
 </node>
 </node>
 </node>
@@ -257,7 +288,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Schedule for today" ID="ID_67458448" CREATED="1589499181398" MODIFIED="1589946198715">
+<node TEXT="Schedule for today" ID="ID_67458448" CREATED="1589499181398" MODIFIED="1591157870657">
 <font NAME="Noto Sans"/>
 <node TEXT="You have following tasks pending from previous days, which ones do you want to do today" ID="ID_1950976785" CREATED="1589499202945" MODIFIED="1589946198715">
 <font NAME="Noto Sans"/>
@@ -265,10 +296,16 @@
 <font NAME="Noto Sans"/>
 </node>
 </node>
-<node TEXT="" ID="ID_797596777" CREATED="1589499291627" MODIFIED="1589946198716">
+<node TEXT="Gratitude" ID="ID_797596777" CREATED="1589499291627" MODIFIED="1591157884397">
 <font NAME="Noto Sans"/>
+<node TEXT="I am grateful for" ID="ID_423808846" CREATED="1591157884414" MODIFIED="1591157900332"/>
+<node TEXT="What would make today great" ID="ID_515898355" CREATED="1591157900435" MODIFIED="1591157907154"/>
+<node TEXT="daily affirmations" ID="ID_599590245" CREATED="1591157907260" MODIFIED="1591157921718"/>
 </node>
 </node>
+</node>
+<node TEXT="Distraction Journal" ID="ID_340603421" CREATED="1590644406875" MODIFIED="1590644418299">
+<node TEXT="Open a text file after the morning questions are opened." ID="ID_1875031460" CREATED="1590644418312" MODIFIED="1590646005046"/>
 </node>
 <node TEXT="Journal Entry" ID="ID_1062335446" CREATED="1589600777511" MODIFIED="1589946198716">
 <font NAME="Noto Sans"/>
@@ -277,12 +314,6 @@
 </node>
 <node TEXT="Weekly, Monthly, ..." ID="ID_1925834843" CREATED="1589600793802" MODIFIED="1589946198716">
 <font NAME="Noto Sans"/>
-</node>
-<node TEXT="Summary picture" ID="ID_1324452964" CREATED="1589600798635" MODIFIED="1589946198716">
-<font NAME="Noto Sans"/>
-<node TEXT="Requirements" ID="ID_1246043639" CREATED="1589600927163" MODIFIED="1589946198716">
-<font NAME="Noto Sans"/>
-</node>
 </node>
 <node TEXT="Text that is to be sent on to evernote" ID="ID_495167177" CREATED="1589600835595" MODIFIED="1589946198716">
 <font NAME="Noto Sans"/>
@@ -294,6 +325,75 @@
 </node>
 <node TEXT="There should be a system to write the tasks such that, I can jump from per-date mode to per-project mode" ID="ID_727376018" CREATED="1589946263412" MODIFIED="1589946322549"/>
 </node>
+</node>
+<node TEXT="Summary Picture" ID="ID_1643759968" CREATED="1590443558883" MODIFIED="1590443577509">
+<node TEXT="Daily" ID="ID_1899885546" CREATED="1590443639404" MODIFIED="1590443641360">
+<node TEXT="Chapter from tao of seneca" ID="ID_772941766" CREATED="1590443642812" MODIFIED="1590443657043"/>
+<node TEXT="Today&apos;s distraction points" ID="ID_182153129" CREATED="1590443701635" MODIFIED="1590443714673"/>
+<node TEXT="Today&apos;s TODO" ID="ID_1638076159" CREATED="1590607486897" MODIFIED="1590607492077"/>
+<node TEXT="Graph about meditation, exercise, sleep n food" ID="ID_490639720" CREATED="1590607492300" MODIFIED="1590607508264">
+<node TEXT="Meditation" ID="ID_829832897" CREATED="1590607508983" MODIFIED="1590607532594"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      x: day, y: min_meditated
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="Exercise" ID="ID_1574605161" CREATED="1590607533011" MODIFIED="1590607574816"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Use a bar graph in which the bar is multicolored. Each colour representing areas&#160;&#160;Legs, Back, Chest, . . .
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="Sleep" ID="ID_404559560" CREATED="1590607575610" MODIFIED="1590607613647"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Colour code the bars which are utilized for sleeping(optional: meditating, exercise,... if it does not look too much congested)
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node TEXT="Picture Design" POSITION="right" ID="ID_1554165987" CREATED="1590443593782" MODIFIED="1590443599853">
+<edge COLOR="#ff00ff"/>
+<node TEXT="Use pywall to automaticall generate colour schemes" ID="ID_564951369" CREATED="1590443664359" MODIFIED="1590443778081"/>
+<node TEXT="Make texture using" ID="ID_1399481261" CREATED="1590443778949" MODIFIED="1590607793072"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      https://www.youtube.com/watch?v=XSgerkCVbFc&amp;t=2419s
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
 <node TEXT="TODO list for the project" POSITION="left" ID="ID_290466094" CREATED="1589598297720" MODIFIED="1589946198716">
@@ -365,7 +465,7 @@
 </node>
 </node>
 </node>
-<node TEXT="" ID="ID_1552057060" CREATED="1589946127851" MODIFIED="1589946198700"/>
+<node TEXT="When str--&gt;Task, show matches from previous times with their stats of time n satisfaction. Matches could be done by tokenizing the strings and percentaging the same words." ID="ID_1552057060" CREATED="1589946127851" MODIFIED="1591068359288"/>
 </node>
 <node TEXT="Design decisions" POSITION="left" ID="ID_1251525478" CREATED="1589599900020" MODIFIED="1589946198719">
 <edge COLOR="#7c007c"/>
@@ -451,8 +551,21 @@
 <font NAME="Noto Sans" BOLD="true"/>
 </node>
 </node>
-<node TEXT="CLI is a passive journal entry maker OR&#xa;It works both ways Evernote &lt;~~~&gt; CLI" ID="ID_1350291113" CREATED="1589600992688" MODIFIED="1589946198721">
+<node TEXT="CLI is a passive journal entry maker OR&#xa;It works both ways Evernote &lt;~~~&gt; CLI" ID="ID_1350291113" CREATED="1589600992688" MODIFIED="1590607907559">
 <font NAME="Noto Sans"/>
+<richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Going with passive as of 28/05/20
+    </p>
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
 </node>

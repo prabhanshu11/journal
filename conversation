@@ -1,0 +1,105 @@
+how do start... what do I focus on... OK. let's see. My journalling app.... I have told so many people about it: mama, ashwin, mayank, aniket. I don't know if its good or not. 
+Ok... what to do now ? ?
+Lets design the output photo... It should have:
+    Distraction list
+    Today's TODO
+    Quote
+    Graph about meditation, exercise, sleep and food.
+        Meditation: {x: day, y: min_meditated}
+        Exercise: Use a bar graph in which the bar is multicolored. Each colour                    representing areas  Legs, Back, Chest,...
+        Sleep: Colour code the bars which are utilized for sleeping(optional: meditating, exercise,... if it does not look too much congested)
+
+TEXTURE
+Also, make the line ending round.
+
+I want to make a class which filters the attributes based on their types.
+Puts them into respective lists 
+Then change their repr (or type); input and output.
+So that the code is more readable while viewing yaml file.
+The subclass would have two _______. One for taking in and other for giving out
+
+
+--Making a task list / Reading the database--------------
+task_list = --list of tasks--
+There will a function or class which looks on today's entry.
+And sees if there is any scheduled task from previous dates, creates a task list from previous day's distraction list. 
+#Case 1: previous day task
+The method, goes to the previous date, reads
+    - task string, 
+
+#Case 2: from_task_string DONE !!!
+
+testcases
+    1. If a new task is made the day.day  is 1 
+        len(days) == 1 and days[0].day == 1
+    2. If a new task is made and no day  is given,
+len(days) == 1 and days[0].day == 1
+    3. If days already extit
+
+
+--Writing on the database------------
+# Case 1.1 First time task, only morning input taken.
+    In this case, I only have estd_time and notes.
+    But how to verify that this is the case ?
+# Case 1.2
+    First time taks, evening input also taken.
+# Case 2 Task not completed and scheduled for a particular date.
+When scheduling for the next date, write
+    Task string, previous date, 
+    
+     
+    
+
+    First coffee, then that, then figure out .from_db class method.
+    
+    
+Algorithm and Data Structures
+Machine Learning maths concepts
+
+
+
+ 
+features how ?
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
