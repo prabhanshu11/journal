@@ -86,15 +86,11 @@ day: {self.days}
             Notes for future/ reasons for not finishing:
                {Task.wrap(t.days[0].notes, width=50)}   
         '''
-             
+@dataclass            
 class Day(object):
-    def __init__(self, date: date, tasks: List[Task]):#, essentials: dict, five_mj: dict):
-        self.date = date
-#        self.essentials = essentials
-        self.tasks = tasks
-#        self.five_mj = five_mj
-    
-#    @classmethod
+    date: date
+    tasks: List['Task'] = field(default_factory=list)
+
     def toDB(self):
         with shelve.open('database') as database:
             database[self.date.isoformat()] = self
@@ -158,27 +154,7 @@ class Day(object):
 
 
         
-#    def from_db(date, subsequent=False):
-        
-        
-    
-    
-    
-#    for line in s.lines[::-1]:
-#        l = re.finditer(pattern, line)
-#        if l is not []:
-#            date_lines.append(l)
-#    data_readlines = f.readlines()
-#    data_read = f.read()
-#    f.seek
-#    pprint(data_readlines)
-#
-#    print([i for i in f])
-#    f.write(t.forDB())        
-#    f.seek(64)
-#    print(f.tell())
-#    f.seek(6)
-#    print(f.tell())
+
     
 
 def locater():
@@ -190,60 +166,7 @@ t = Task(x)
 t.days[0].notes=7*x
                  
 
-#class Solution(object):
-#    def twoSum(self, nums, target):
-#        """
-#        :type nums: List[int]
-#        :type target: int
-#        :rtype: List[int]
-#        """
-#        bag = {}
-#        difference = 0
-#        found = False
-#        from itertools import count, groupby
-#        for number in zip(nums, count()):
-#            i = bag.setdefault(number[0], number[1])
-#            uniques = list(bag.keys())
-#            diff =  target-uniques[-1]
-#
-#            if diff in bag.keys(): 
-#                found = [bag[diff], number[1]]  
-#
-#            if number[0]==uniques[0]: 
-#                found = [0,1]
-#             
-#        return found
-#
-#nums_repeated_case = [3,3]
-#nums = [2,5,5,11]
-#target = 10 
-#bag = {}
-#difference = 0
-#found = False
-#from itertools import count, groupby
-#for number in zip(nums, count()):
-#    #If key not in dict: Insert key with value of default
-#    #If key in dict: Return the value of key
-#    # ask_anj number.item, number.index = number[0], number[1] 
-#     
-#    i = bag.setdefault(number[0], number[1])
-#    #print(bag)
-#    #diff = target - b
-#    uniques = list(bag.keys())
-#    diff =  target-uniques[-1]
-#    
-#    if diff in bag.keys(): 
-#        found = [bag[diff], number[1]]
-##    found = [bag.get(diff), number[1]]   
-#    
-#    if number[0]==uniques[0]: 
-#        found = [0,1]
-##  
-#    print(i, uniques, diff, number[1],bag, found, sep='  ')
-#
-#    
-#
-#print(found)
+
 
 
 
@@ -278,4 +201,3 @@ t.days[0].notes=7*x
 #Diameter = {self.Dia*100:.2f}cm     ;   Height = {self.h*100:.2f}cm
 #Peak descend rate = {self.rate:.3f}mm/s
 #Average descend = {self.avg_rate:.3f}mm/s""")
-nums_long = list(range(2,50000,2))
