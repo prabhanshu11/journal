@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="Journaling" FOLDED="false" ID="ID_303293361" CREATED="1589325442482" MODIFIED="1589640647100">
 <font SIZE="18"/>
-<hook NAME="MapStyle" zoom="0.685">
+<hook NAME="MapStyle" zoom="1.003">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
 
 <map_styles>
@@ -128,7 +128,7 @@
 <font NAME="Noto Sans"/>
 <node TEXT="Questions about previous day" ID="ID_1343911160" CREATED="1589499137338" MODIFIED="1589946198711">
 <font NAME="Noto Sans"/>
-<node TEXT="Essentials" ID="ID_1036088411" CREATED="1589325954410" MODIFIED="1589946198711">
+<node TEXT="Essentials" FOLDED="true" ID="ID_1036088411" CREATED="1589325954410" MODIFIED="1589946198711">
 <font NAME="Noto Sans"/>
 <node TEXT="1. When did you slept and woke up" ID="ID_1468040040" CREATED="1589325963577" MODIFIED="1589946198711"><richcontent TYPE="DETAILS">
 
@@ -244,7 +244,7 @@
 </node>
 <node TEXT="Gratitude" ID="ID_172680260" CREATED="1589499448229" MODIFIED="1589946198714">
 <font NAME="Noto Sans"/>
-<node TEXT="Amazing things that happened today [recommended: three points]" ID="ID_1880014270" CREATED="1589499466985" MODIFIED="1589946198714"><richcontent TYPE="DETAILS">
+<node TEXT="Amazing things that happened today [recommended: three points]" FOLDED="true" ID="ID_1880014270" CREATED="1589499466985" MODIFIED="1589946198714"><richcontent TYPE="DETAILS">
 
 <html>
   <head>
@@ -466,6 +466,7 @@
 </node>
 </node>
 <node TEXT="When str--&gt;Task, show matches from previous times with their stats of time n satisfaction. Matches could be done by tokenizing the strings and percentaging the same words." ID="ID_1552057060" CREATED="1589946127851" MODIFIED="1591068359288"/>
+<node TEXT="Track the code on github and display on the photo" ID="ID_1045767224" CREATED="1591198879384" MODIFIED="1591198906913"/>
 </node>
 <node TEXT="Design decisions" POSITION="left" ID="ID_1251525478" CREATED="1589599900020" MODIFIED="1589946198719">
 <edge COLOR="#7c007c"/>

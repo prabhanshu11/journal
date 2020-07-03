@@ -7,9 +7,13 @@ Created on Tue Jun  2 02:33:58 2020
 """
 from datetime import date, time, timedelta
 from dataclasses import dataclass, field
-from typing import *
-from math import pi
-import re, textwrap
+from typing import List, Set, Tuple, Dict
+#from math import pi
+import re, textwrap, shelve
+from itertools import count, groupby, repeat, islice
+from collections import namedtuple
+from Journal.tasks_new import *
+from pprint import pprint
 # estd_time, actual_time, notes, eff_satisfaction
 @dataclass #change the repr later
 class DayOfTask():
@@ -48,7 +52,7 @@ day: {self.days}
         print(task_string)
         estd_time = input("How much time do you think this would take ?\n")
         notes = input("Do you want to add any notes? \n")
-        cls.day = DaytOfTask(day=1, estd_time=estd_time, notes=notes)
+        cls.day = DayOfTask(day=1, estd_time=estd_time, notes=notes)
         return cls(task_string, cls.day)
     
 #    @classmethod
@@ -56,6 +60,7 @@ day: {self.days}
 #                date: datetime.date = date.today(), 
 #                #all_entries_after_date: bool = False,
 #                ):
+#        "returns a list of tasks on that day"
 #        pattern = re.compile(r"""
 #                             
 #                             """,re.VERBOSE)
@@ -63,13 +68,14 @@ day: {self.days}
 #        data = f.readlines()
 #        for line_no_in_reverse, line in data[::-1]:
 #            
-    
+#    
     @staticmethod
     def wrap(text, width=80,subsequent_indent=4): 
         return textwrap.fill(text=text, width=width,
                          initial_indent="\u2022 ", #bullet
                          subsequent_indent=(subsequent_indent*'\t'+'  '))
-    
+
+            
     def forDB(self):
         if (len(self.days)==1 and 
             self.days[0].day == 1 and 
@@ -80,61 +86,164 @@ day: {self.days}
             Notes for future/ reasons for not finishing:
                {Task.wrap(t.days[0].notes, width=50)}   
         '''
-            
-        
-x = 'Comlete problem 7 on Hacker rank'
-t = Task(x)
-t.days[0].notes=7*x
-                 
-from pprint import pprint
-with open('test','r+') as f:
-    #data_readlines = f.readlines()
-    #data_read = f.read()
-    #f.seek
-    #pprint(data_readlines)
+             
+class Day(object):
+    def __init__(self, date: date, tasks: List[Task]):#, essentials: dict, five_mj: dict):
+        self.date = date
+#        self.essentials = essentials
+        self.tasks = tasks
+#        self.five_mj = five_mj
+    
+#    @classmethod
+    def toDB(self):
+        with shelve.open('database') as database:
+            database[self.date.isoformat()] = self
 
+    @classmethod
+    def fromDB(cls, date):
+        with shelve.open('database') as database:
+            day = database[date.isoformat()]
+            
+        return cls(day.date, day.tasks)
+
+    
+    
+    
+    
+    
+    
+    
+    
+#class Seeker(object):
+#    def __init__(self, lines: List[str]):
+#        self.lines = lines
+#    def __repr__(self):
+#        return str(self.lines)
+#    
+#    @classmethod
+#    def from_date(cls, lines, date):
+#        sought = list(islice(lines, *Seeker.date2line_num(lines, date)))
+#        return cls(sought)
+#    
+##    @classmethod
+##    def on_task(cls, lines, Sno = 1):
+##        
+#    @staticmethod
+#    def date2line_num(task_db: List[str], date=date.today(), subsequent=False):
+#        """
+#        Returns a pair of line numbers which correspond to a dated entry in a text file, or
+#        If subsequent is True, a list of line numbers of all the subsequent dates is returned.
+#        
+#        line numbers start from 0
+#        task_db is the list of lines of a text file which can be read using:
+#            with open('sample database','r') as f: 
+#                task_db = f.readlines()
+#        """
+#        pattern = re.compile(r'Date: (\d{2})/(\d{2})/(\d{4}) \w+ \w+')
+#        #tip-- read following 5 lines from bottom.
+#        date_line = ((date.fromisoformat('-'.join(reversed(  #reversed because we write dd/mm/yy but python requires yy/mm/dd
+#                re.match(pattern, line).groups()))), index)
+#            for index, line in zip(count(),lines) if re.match(pattern,line))
+#        
+#        line_numbers = []
+#        for date_on_db, corr_line in date_line:
+#            if date_on_db >= date: line_numbers.append(corr_line)
+#            if subsequent == False:
+#                if len(line_numbers) == 2: break
+#                
+#        return line_numbers
+#    
+#    
+
+
+
+        
+#    def from_db(date, subsequent=False):
+        
+        
+    
+    
+    
+#    for line in s.lines[::-1]:
+#        l = re.finditer(pattern, line)
+#        if l is not []:
+#            date_lines.append(l)
+#    data_readlines = f.readlines()
+#    data_read = f.read()
+#    f.seek
+#    pprint(data_readlines)
+#
 #    print([i for i in f])
-    f.write(t.forDB())        
-    f.seek(64)
-    print(f.tell())
-    locater()
-    f.seek(6)
-    print(f.tell())
-    locater()
+#    f.write(t.forDB())        
+#    f.seek(64)
+#    print(f.tell())
+#    f.seek(6)
+#    print(f.tell())
     
 
 def locater():
     f.write('.<<HERE<<')
 
 
+x = 'Comlete problem 7 on Hacker rank'
+t = Task(x)
+t.days[0].notes=7*x
+                 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#class Solution(object):
+#    def twoSum(self, nums, target):
+#        """
+#        :type nums: List[int]
+#        :type target: int
+#        :rtype: List[int]
+#        """
+#        bag = {}
+#        difference = 0
+#        found = False
+#        from itertools import count, groupby
+#        for number in zip(nums, count()):
+#            i = bag.setdefault(number[0], number[1])
+#            uniques = list(bag.keys())
+#            diff =  target-uniques[-1]
+#
+#            if diff in bag.keys(): 
+#                found = [bag[diff], number[1]]  
+#
+#            if number[0]==uniques[0]: 
+#                found = [0,1]
+#             
+#        return found
+#
+#nums_repeated_case = [3,3]
+#nums = [2,5,5,11]
+#target = 10 
+#bag = {}
+#difference = 0
+#found = False
+#from itertools import count, groupby
+#for number in zip(nums, count()):
+#    #If key not in dict: Insert key with value of default
+#    #If key in dict: Return the value of key
+#    # ask_anj number.item, number.index = number[0], number[1] 
+#     
+#    i = bag.setdefault(number[0], number[1])
+#    #print(bag)
+#    #diff = target - b
+#    uniques = list(bag.keys())
+#    diff =  target-uniques[-1]
+#    
+#    if diff in bag.keys(): 
+#        found = [bag[diff], number[1]]
+##    found = [bag.get(diff), number[1]]   
+#    
+#    if number[0]==uniques[0]: 
+#        found = [0,1]
+##  
+#    print(i, uniques, diff, number[1],bag, found, sep='  ')
+#
+#    
+#
+#print(found)
 
 
 
@@ -169,3 +278,4 @@ def locater():
 #Diameter = {self.Dia*100:.2f}cm     ;   Height = {self.h*100:.2f}cm
 #Peak descend rate = {self.rate:.3f}mm/s
 #Average descend = {self.avg_rate:.3f}mm/s""")
+nums_long = list(range(2,50000,2))

@@ -16,10 +16,11 @@ index = {"properties": "01_Tasks.ipynb",
          "enumerator": "02_questions.ipynb",
          "essentials": "02_questions.ipynb",
          "work": "02_questions.ipynb",
-         "a": "02_questions.ipynb",
-         "selections": "02_questions.ipynb",
+         "estd_time": "02_questions.ipynb",
          "distractions": "02_questions.ipynb",
-         "time_abbreviation": "11_Tasks.ipynb"}
+         "time_abbreviation": "11_Tasks.ipynb",
+         "sensible_date2str": "11_Tasks.ipynb",
+         "sensible_str2date": "11_Tasks.ipynb"}
 
 modules = ["core.py",
            "tasks.py",
