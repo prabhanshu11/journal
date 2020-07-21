@@ -59,16 +59,88 @@ When scheduling for the next date, write
     Task string, previous date, 
     
     
+DB management should be a part of Task or not ?
+
+ok. what is the problmen I am facing ?
+I want to combine, essentials, mj and a list(Tasks) into one package and store it in the db by date.
+I have made a Day class. How and when will it be populated ?
+It should be populated right after the questions are asked.
+Day object should have details of a tasks on that particular day only. 
+This should be handled by Day or Task ?
+
+Day class should:
+call essentials, mj and tasks. 
+    Structure of Day class:
+
+File[string(datetime.date)] -----> Day object.  --  Task class
+  |                                            ||    |
+Referenced by                                  ||  Referenced by
+date strings                                   ||   Task strings     Eg: "B1"
+  |             +----Essentials                ||    |
+  |             |----5 minute journal  |-"B1"  ||    +      +--->Day = 1
+  +-->today-1---|----Task('A1')        |       ||    |------|--->Estd_time = 1h
+  |             |----Task('B1')+-------|       ||    |      |--->Effort_Satis = 7/10
+  |             +----Task('C1')        |-Day=1 ||    |        .         .
+  |                                            ||    |        .         .
+  |             +----Essentials                ||    |      +--->Next_date = today()
+  |             |----5 minute journal  |-"B1"  ||    |
+  +-->today-----|----Task('B1')+-------|       ||    |      +--->Day = 2
+  |             |----Task('A2')        |-Day=2 ||    |------|--->Next_date = today()+1
+  |             +----Task('B2')                ||    |      +--->Prev_date = today()
+  |                                            ||    |
+  |             |----                          ||    |      +--->Day = 3
+  |             |----                  |-"B1"  ||    |------|--->Next_date = [scheduled]
+  +-->today+1---|----Task('B1')+-------|       ||    |      ++-->Prev_date = today()
+  |             |----                  |-Day=3 ||    |
+  |             |----                          ||    |
+  |                                            ||    |
+  |                                            ||    +
+
     
+Lets start. 
+Today starts. There is no previous tasks or anything. Hence there is no entry.
+KeyError is catched in the except clause. 
+
+The function should ask the essentials and the morning 5mj questions.
+
+Lets split essentials function into a class with two functions.
+    One will be asked in the morning --> Sleep, Food; there will be an option for ex & md.
+    Others in the evening --> Food(rest of it), ex, md.
+
+Next comes the morning 5MJ questions. Which are:
+        I am grateful for; What would make today great; Daily affirmations "I am ..."
+
+Next, a list of distractions are to be shown.
+    A distraction journal class should be created first. 
+        It should be separate database.
+        Save the date and time when a distraction was written.
+        Option to convert distractions into reminders.
+            When should the reminder be shown ? Ans: During the distraction mode, at the right side, when the date is approaching. 
+        Option to save important dates. (Create a separate note on evernote for this)
     
-I need to make a database class which can seek through the database and point to particular strings from where methods from the Task module can act on it. 
-pointing to lines vs extracting information from them
-what is seeker object doing ? 
+    What would be the structure of the database. 
+    
+    What should the distraction class look like if, its just an array of arrays which are pickled.
+    It should return a list of strings. with options of included date and hidden dists.
+    It should be able to take strings and append it with a timestamp in the pickle.
+                            OR
+    The class has attributes. And then that class is shelved. But shelving means a single instance is to be saved. That's OK. But retrieving can be of the entire shelve using a for loop. So,
+    It could return a list of strings. with options of included date and hidden dists.
+
+Now a list of distractions is shown. 
+User is now to be asked if any of those are to be converted into tasks.
+
+Before that, lets make sure that the previous code is working well, also reorganise everything and delete unneccessary stuff.
+
+Task class seems fine, lets check out Day class. They all work.
+Now lets check distractions.It works too. But I'm not very sure about the timestamp part. The difference is just in nanoseconds. Using the pickle approach.
+    What methods do I need ?
+    Distraction(str1) --> This should make a new distraction object with usual properties.
+    Distraction.save() --> This should save the distraction object created as array in pillow
+    Distraction.view() --> This should display all the strings in the pillow.
+    
 
 
-What are monthly leetcode challenges ?
-
-Search if employers check hackerank rank, also is there a similar system in LC.
 
 
 
@@ -87,27 +159,19 @@ Search if employers check hackerank rank, also is there a similar system in LC.
 
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     

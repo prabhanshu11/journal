@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="Journaling" FOLDED="false" ID="ID_303293361" CREATED="1589325442482" MODIFIED="1589640647100">
 <font SIZE="18"/>
-<hook NAME="MapStyle" zoom="1.003">
+<hook NAME="MapStyle" zoom="1.103">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
 
 <map_styles>
@@ -90,7 +90,7 @@
 </node>
 </node>
 <node TEXT="Use dateutil library later to parse datetimes to include better support for timedeltas" ID="ID_1277565481" CREATED="1590869790806" MODIFIED="1590869838228"/>
-<node TEXT="Task class and functions" ID="ID_1214645388" CREATED="1591144754182" MODIFIED="1591144781843">
+<node TEXT="Task class and functions" FOLDED="true" ID="ID_1214645388" CREATED="1591144754182" MODIFIED="1591144781843">
 <node TEXT="Task scheduler func" ID="ID_651416275" CREATED="1591144781852" MODIFIED="1591144854804"><richcontent TYPE="DETAILS">
 
 <html>
@@ -119,6 +119,28 @@
 </richcontent>
 <node TEXT="" ID="ID_723886689" CREATED="1591144909014" MODIFIED="1591144909014"/>
 </node>
+</node>
+<node TEXT="Testing" ID="ID_736574096" CREATED="1593906141749" MODIFIED="1593906353904"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Make a something in which:
+    </p>
+    <ul>
+      <li>
+        There are presets in form of lists.
+      </li>
+      <li>
+        It should be able to mimic entering of texts.
+      </li>
+    </ul>
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
 <node TEXT="Design" POSITION="right" ID="ID_1403098823" CREATED="1589325515902" MODIFIED="1589946198711">
@@ -563,6 +585,39 @@
   <body>
     <p>
       Going with passive as of 28/05/20
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="When compiling tasks list:" ID="ID_769454264" CREATED="1594905540466" MODIFIED="1594905557742">
+<node TEXT="Task strings from distraction, 5mj and user input to be taken first. Then a second pass to ask for more details." ID="ID_1134874656" CREATED="1594905559300" MODIFIED="1594905597341"/>
+<node TEXT="Compile each task from string one by one." ID="ID_280810030" CREATED="1594905597784" MODIFIED="1594905642034">
+<font BOLD="true"/>
+<richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Going with this, change later if it does not work.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node TEXT="Distraction db array of array or dicts" ID="ID_1233564700" CREATED="1594921498407" MODIFIED="1594921671364"><richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      For now I'm using db same as that of Tasks class but I gotta change this later.
     </p>
   </body>
 </html>

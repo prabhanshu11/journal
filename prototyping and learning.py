@@ -5,7 +5,8 @@ Created on Tue Jun  2 02:33:58 2020
 
 @author: prabhanshu
 """
-from datetime import date, time, timedelta
+from datetime import date, timedelta
+import time, pickle
 from dataclasses import dataclass, field
 from typing import List, Set, Tuple, Dict
 #from math import pi
@@ -13,103 +14,97 @@ import re, textwrap, shelve
 from itertools import count, groupby, repeat, islice
 from collections import namedtuple
 from Journal.tasks_new import *
+from Journal.questions import *
 from pprint import pprint
+exec(open('prototyping and learning 2.py').read())
 # estd_time, actual_time, notes, eff_satisfaction
-@dataclass #change the repr later
-class DayOfTask():
+
+@dataclass
+class Task():    
+    task: str
     day: int = 1
-    estd_time: timedelta = None
+    estd_time = None
     actual_time: timedelta = timedelta(0)
     notes: str = None
-    eff_satisfaction: int = None
+    satisfaction_on_effort: int = 0
+    prev_date: date = None
+    next_date: date = date.today() + timedelta(days=1)
     completed: bool = False
     
-class Task():
-    """Class to act as a database. It can read and create a task object from a DB.
-    It can also write those changes.
-    """
-    days = []
-    
-    def __init__(self, task_string, day=DayOfTask()):
-        self.task_string = task_string
-        self.day = day
-        if self.day.day == 1 :
-            self.days = [self.day]
-        elif len(self.days) == self.days[-1].day :
-            current_day = len(self.days)
-            self.days.append(DayOfTask(current_day+1))
-       
-    def new_day(self):
-        if len(self.days) == self.days[-1].day :
-            current_day = len(self.days)
-            self.days.append(DayOfTask(current_day+1))
-    def __repr__(self):
-        return f"""task: {self.task_string}
-day: {self.days}
-"""        
-    @classmethod
-    def from_task_string(cls, task_string):
-        print(task_string)
-        estd_time = input("How much time do you think this would take ?\n")
-        notes = input("Do you want to add any notes? \n")
-        cls.day = DayOfTask(day=1, estd_time=estd_time, notes=notes)
-        return cls(task_string, cls.day)
-    
-#    @classmethod
-#    def from_db(cls, 
-#                date: datetime.date = date.today(), 
-#                #all_entries_after_date: bool = False,
-#                ):
-#        "returns a list of tasks on that day"
-#        pattern = re.compile(r"""
-#                             
-#                             """,re.VERBOSE)
-#        with open('test', 'r') as f:
-#        data = f.readlines()
-#        for line_no_in_reverse, line in data[::-1]:
-#            
-#    
-    @staticmethod
-    def wrap(text, width=80,subsequent_indent=4): 
-        return textwrap.fill(text=text, width=width,
-                         initial_indent="\u2022 ", #bullet
-                         subsequent_indent=(subsequent_indent*'\t'+'  '))
+    def __str__(self):        
+        string = (f'{self.task}', 
+                  f'Day = {self.day}    Complete = {self.completed}',
+                  f'Satisfaction = {self.satisfaction_on_effort}',
+                  f'Time\n    Estimated = {self.estd_time}',
+                  f'\tActual = {self.actual_time}',
+                  f'Date',
+                  f"\t{(lambda x: f'Previous = {x}' if x != None else '')(self.prev_date)}",
+                  f'\tNext = {self.next_date}',
+                  f'Additional Notes:\n    {self.notes}')
+        return '\n'.join(string)
 
-            
-    def forDB(self):
-        if (len(self.days)==1 and 
-            self.days[0].day == 1 and 
-            self.days[0].actual_time == timedelta(0)):
-            return f'''
-  [Part]   {t.task_string}
-  Day: 1   Estimated Time: {t.days[0].estd_time}        Actual Time: [--only-initialization-done--]
-            Notes for future/ reasons for not finishing:
-               {Task.wrap(t.days[0].notes, width=50)}   
-        '''
+ 
+
 @dataclass            
-class Day(object):
+class Day():    
     date: date
     tasks: List['Task'] = field(default_factory=list)
-
+    essentials: dict = field(default_factory=dict)
+    mj: dict = field(default_factory=dict)
+    
+  #  def __post_init__():
+        
+    
     def toDB(self):
         with shelve.open('database') as database:
             database[self.date.isoformat()] = self
 
     @classmethod
     def fromDB(cls, date):
-        with shelve.open('database') as database:
-            day = database[date.isoformat()]
-            
-        return cls(day.date, day.tasks)
+        with shelve.open('database') as db:
+            d = db[date.isoformat()]            
+        return cls(d.date, d.tasks, d.essentials, d.mj)
 
+class Distraction():
     
+    def save(string):
+        entries = {}
+        try: entries = pickle.load(open('distraction.pkl', 'rb'))
+        except FileNotFoundError: pass                                    
+        finally:
+            with open('distraction.pkl', 'wb') as f:
+                entries.setdefault(string, datetime.datetime.now())
+                pickle.dump(entries,f)
+
+    def retrieve():
+        try: entries = pickle.load(open('distraction.pkl', 'rb'))
+        except FileNotFoundError: entries = {'--no-distractions--':None}
+        return entries
     
-    
-    
-    
-    
-    
-    
+#Lets say today is the day.
+#def main():
+#    today = date.today()
+#    try: 
+#        todays_entry = Day.fromDB(today)
+#    except KeyError:
+#        essentials = Essentials.morning()
+#        mj = FiveMinuteJournal.morning()
+#    
+#    distractions = Distract.fromDB
+#    print('\nDistractions list:\n')
+#    enumerator(Distraction.retrieve_list())
+
+#t1 = Task('task1')
+#t2 = Task('task2')
+#t3 = Task('task3')
+#e = {'a':1, 'b':2}
+#m = {'c':3, 'd':4}
+#dat = date.today()
+#d = Day(dat,[t1,t2,t3], e, m)
+#d.toDB()
+d1 = Distraction(datetime.datetime.now(), 'this is distraction1')
+d2 = Distraction(datetime.datetime.now(), 'this is distraction2')
+
 #class Seeker(object):
 #    def __init__(self, lines: List[str]):
 #        self.lines = lines
@@ -161,9 +156,6 @@ def locater():
     f.write('.<<HERE<<')
 
 
-x = 'Comlete problem 7 on Hacker rank'
-t = Task(x)
-t.days[0].notes=7*x
                  
 
 
