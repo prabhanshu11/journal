@@ -134,13 +134,10 @@ Before that, lets make sure that the previous code is working well, also reorgan
 
 Task class seems fine, lets check out Day class. They all work.
 Now lets check distractions.It works too. But I'm not very sure about the timestamp part. The difference is just in nanoseconds. Using the pickle approach.
-    What methods do I need ?
-    Distraction(str1) --> This should make a new distraction object with usual properties.
-    Distraction.save() --> This should save the distraction object created as array in pillow
-    Distraction.view() --> This should display all the strings in the pillow.
+    What methods do I have ?
+    Distraction.save('str1') --> This adds a new dict entry with str1 as key and its timestamp as value. It then saves that dict persistently.
+    Distraction.view() --> This displays all the strings in the pillow as dicts. The keys can later be extracted using Distraction.view().keys()
     
-
-
 
 
 

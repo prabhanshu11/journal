@@ -67,13 +67,14 @@ class Day():
 
 class Distraction():
     
-    def save(string):
+    def save(*string):
         entries = {}
         try: entries = pickle.load(open('distraction.pkl', 'rb'))
         except FileNotFoundError: pass                                    
         finally:
             with open('distraction.pkl', 'wb') as f:
-                entries.setdefault(string, datetime.datetime.now())
+                for i in string:
+                    entries.setdefault(i, datetime.datetime.now())
                 pickle.dump(entries,f)
 
     def retrieve():
