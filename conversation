@@ -1,5 +1,3 @@
-how do start... what do I focus on... OK. let's see. My journalling app.... I have told so many people about it: mama, ashwin, mayank, aniket. I don't know if its good or not. 
-Ok... what to do now ? ?
 Lets design the output photo... It should have:
     Distraction list
     Today's TODO
@@ -138,10 +136,109 @@ Now lets check distractions.It works too. But I'm not very sure about the timest
     Distraction.save('str1') --> This adds a new dict entry with str1 as key and its timestamp as value. It then saves that dict persistently.
     Distraction.view() --> This displays all the strings in the pillow as dicts. The keys can later be extracted using Distraction.view().keys()
     
+    Distraction strings are stored as keys in a dict to ensure there are no duplicate entries using dict.setdefault() function.
+    
+
+Now lets resume the app working from line 113. Following classes are ready:
+Tasks, Day, Distraction, 5MJ, Essentials. 
+
+Ok now, its time for the user to compile a tasks list. Obviously this feature can be used anytime, but this is the morning. So he is already shown his distractions list and today's 5mj 3things. 
+STEPS: First line is business logic, second line is program logic.
+
+ |--Ask for the task string, estd_time and strt_date.
+ |----->Strt_date will not be the part of Task, it will be stored in Day class. For that, 
+        Make a task instance with string, estd and notes.
+        Ask the user for strt_date which is date.date() and store it in  a variable.
+        If the date is today's date, add it to 'today' instance of 'Day' and increment counter.
+        Elif, if it a different date, try to open its persistant entry. If its found, append.
+            else, create a new entry and then append it to .tasks.
+        
+        This trying to open a persistant entry and then if its not found creating and then adding the entry
+        keeps happening. This feature should be a part of .fromDB in 'Day' class.
+
+ |--Keep asking these and creating tasks but remind the user if 3 tasks are set for today.
+ |------>In a loop, asks and add tasks to a 'today' instance of 'Day' class. Remind when counter is at 
+         three.
+ 
+ |--Run the program in distraction mode.
+ |------>In a loop, user can write anything. When he presses enter, a distraction entry is made and saved.
+        Display that entry on a list.
+        Except if there are some specific keywords. One of those keywords being 'sign off for the night'
+        In which case, start the evening mode.
+
+ |--Start the Evening mode.
+ |----->This mode will take inputs for evening questions of mj and essentials.
+        Also ask questions about the tasks assigned in the morning.
+            Case['Easiest'] - Task was a one-time-thing and the user has completed it.
+            Case['Easy'] - Task was created today but the user has not completed it so he schedules it.
+            Case['Hard'] - Task is a part of a previous entry, so the user has to be displayed the full
+                chained task and then it's Case['Easy']
+                
+ |--Case['Hard'] of previous step requires changes in Task module. 
+ |----->__str__ to be completely changed so that it displays that full chain.
+        The .prev_date is to be checked if its None then this is the first day of that task.
+        If .next_date is None this is the latest day of that task.
+            
+            This begs a question, the default value of .next_date was date.today() + timedelta(day+1) so 
+            that if user skips the evening session, the task is added to the entry of tomorrow. What if the user does not open the app even the next day i.e morning session is not opened.
+            
+            I have now changed it to None. This way, it is easier to check if the current task is the infact the latest one.
+
+
+
+        
+[notDone]Lets create a test function which can automatically enter the texts and check the results. 
+    https://code-maven.com/mocking-input-and-output-for-python-testing
+    
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Write this for distrations: 
+This is not only about writing distractions what come to your mind, 
+it's this: don't keep anything what comes to your mind. That is going to 
+feel unnatural, awkward and unneccessary. Writing distractions is just the first step in decluttering your mind.
+But following the principles behind the GTD by David Allen, Every single next action you need to take about any of your commitements like your body, relationships, work, philosophy etc that you are involved in,
+you need to clarify those and park those in appropriate places. 
+So that you see those actions on regular places.
+But you can't think all of it at once, our minds don't work like that. We do however get epiphanies. You might think they are random and to a certain point they are, and the system described below and this distraction section can help us to store them but you can manipulate your sub-concious, if you write the things which matter to you on certain places so that you can easily revisit them later. Yes, I'm talking about goals or other stuff which you need daily, weekly, monthly and so on. But all that activity seems too much hard work and there is a tendency to never start or quit early. More on this later.
+
+Distraction journal acts as paper on which you print the second impressions of your thoughts. Where do you put the first impressions ? Well you could put it here, if you happen to be sitting infront of this app. Otherwise make a system for yourself, I use evernote widget to write instant notes or save audio msgs. I can later add it to this list or I can add to any of my evernote notes. 
+The point is, you need to take impressions of your thoughts so that they are clarified. I have purposefully not added any timers, word limits or other distractions. Just write whatever you want, store it on the journal which you get to see all the time the app is open, then if you find place for it or decide to take action, you can delete that entry. 
+
+Apart from making it easy to take down your mind's impressions and helping you to keep yourself from distracting when you are on your computer trying to work and not watch youtube. The distraction journal also acts a positive feedback loop. 
+You see the most loud and immediate impressions of your mind, which do tend to always set you on a path of procrasination in the begining, all the time when your PC is ON on your wallpaper and on this app, so they have a greater chance of influencing your subconcious. Then when you get that next epiphany, you can jot it down right here. You could modify and build on the any previous thought of idea. This is a very powerfull feature, so even if you stop using this app, filling nothing for the questions and assigning no tasks, you still get a screen, but not a blank one and sometimes that's enough.
 
 
 

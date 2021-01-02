@@ -38,13 +38,8 @@ class FiveMinuteJournal():
         print('How could I have made today better? \n')
         today_better = list(multi_input())
         return locals()
-        
-        
-        
-        
-        
-        
-        
+
+
         
         
         

@@ -49,7 +49,8 @@ def sensible_date2str(x: datetime.date) -> str:
 def sensible_str2date(x: str, case=0) -> datetime.date:
     """
     Takes string of the form:
-    '15-Dec-2012'
+    case 0 --> '15-Dec-2012' [default]
+    case 1 --> '15-12-2012'
     """
     if case==0: x = datetime.strptime(x,'%d-%b-%Y')
     if case==1: x = datetime.strptime(x,'%d-%m-%Y')

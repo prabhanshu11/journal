@@ -39,6 +39,13 @@ def enumerator(sentences: List[str], start=1):
         print(f'[{index}] {item.capitalize()}')
 
 def dprint(s: str) -> str:
+    """
+    This modifies print function such that the in if it is written in the form:
+            ('''
+             point1
+             point2''')
+    in the source code, it dedents. This makes source code more readable.
+    """
     from textwrap import dedent
     return print(dedent(s))
 
@@ -132,11 +139,11 @@ class FiveMinuteJournal():
     @staticmethod
     def morning():
         dprint(FiveMinuteJournal.__intro())
-        print('I am grateful for . . . \n')
+        print('I am grateful for . . .(atleast 2) \n')
         grateful_for = list(multi_input())
-        print('What would make today great? \n')
+        print('What would make today great? . . . (atmost 3) \n')
         three_actions = list(multi_input())
-        print('Daily affirmations. I am . . . \n')
+        print('Daily affirmations. I am . . . (atmost 2)\n')
         affirmations = list(multi_input())
         return locals()
 
