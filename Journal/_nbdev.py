@@ -2,15 +2,17 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"properties": "01_Tasks.ipynb",
-         "defaults": "01_Tasks.ipynb",
+index = {"str2timeDelta": "01_Tasks.ipynb",
+         "time_abbreviation": "01_Tasks.ipynb",
+         "sensible_date2str": "01_Tasks.ipynb",
+         "sensible_str2date": "01_Tasks.ipynb",
+         "task_scheduler": "01_Tasks.ipynb",
+         "estimated_time": "01_Tasks.ipynb",
+         "actual_time": "01_Tasks.ipynb",
+         "satisfaction": "01_Tasks.ipynb",
          "Task": "01_Tasks.ipynb",
-         "str2timeDelta": "11_Tasks.ipynb",
-         "args_map": "01_Tasks.ipynb",
-         "task_scheduler": "11_Tasks.ipynb",
-         "estimated_time": "11_Tasks.ipynb",
-         "actual_time": "11_Tasks.ipynb",
-         "satisfaction": "11_Tasks.ipynb",
+         "Day": "01_Tasks.ipynb",
+         "Distraction": "01_Tasks.ipynb",
          "multi_input": "02_questions.ipynb",
          "clear_screen": "02_questions.ipynb",
          "enumerator": "02_questions.ipynb",
@@ -20,15 +22,12 @@ index = {"properties": "01_Tasks.ipynb",
          "work": "02_questions.ipynb",
          "estd_time": "02_questions.ipynb",
          "distractions": "02_questions.ipynb",
-         "time_abbreviation": "11_Tasks.ipynb",
-         "sensible_date2str": "11_Tasks.ipynb",
-         "sensible_str2date": "11_Tasks.ipynb"}
+         "test_date": "03_tests.ipynb"}
 
 modules = ["core.py",
            "tasks.py",
            "questions.py",
-           "tests.py",
-           "tasks_new.py"]
+           "tests.py"]
 
 doc_url = "https://Prabhanshu.github.io/Journal/"
 

@@ -189,7 +189,15 @@ STEPS: First line is business logic, second line is program logic.
         
 [notDone]Lets create a test function which can automatically enter the texts and check the results. 
     https://code-maven.com/mocking-input-and-output-for-python-testing
-    
+
+What do I have to mock ? text input to the morning() function.
+lets check multi_input() first.
+Normal behaviour of multi_input()
+    It returns a generator, user has to input and then press enter. It breaks when Enter is pressed twice. 
+What do I want to test.
+    There should be an external file, with CR seperated values, when there are 2 CRs, multi_input should break. 
+    OR,
+    There should be a list of values.
 
 
 

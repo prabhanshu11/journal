@@ -6,6 +6,7 @@ Created on Tue Jun  2 02:33:58 2020
 @author: prabhanshu
 """
 from datetime import date, timedelta
+import datetime
 import time, pickle
 from dataclasses import dataclass, field
 from typing import List, Set, Tuple, Dict
@@ -171,6 +172,7 @@ class Distraction():
             if serial_no == index+1: break
         Distraction.delete(key)
         return 'Done'
+    
     def delete_last_entry():
         Distraction.delete(list(
                 enumerate(Distraction.retrieve()))
@@ -179,32 +181,30 @@ class Distraction():
 
 
 
-
-
-        
+       
 #Lets say today is the day.
 def morning():
     today = Day.fromDB(date.today())
     
     #POTENTIAL_BUG What if there already are entries of .essentials or .mj ? 
-    today.essentials = Essentials.morning()
-    today.mj = FiveMinuteJournal.morning()    
     clear_screen()
+    today.essentials = Essentials.morning()
+    clear_screen()
+    today.mj = FiveMinuteJournal.morning()    
     print('\nDistractions list:\n')
     enumerator(Distraction.retrieve())    
     print('\nThings that according to you would make today great\n')
     enumerator(today.mj['three_actions'])
-    
     dprint("""
           Keeping all the above in mind, let's compile a task list.
           The lists above can be abstract, the task should be concrete."
           It should be timebound, attainable and satisfactory.
           If the task seems too big, split it into subtasks""")
-    
     tasks_added = []
     while True:
         t = Task.morning()
-        strt_date = Task.questions.ask_date()
+        strt_date = Task.questions.strt_date()
+        
         if strt_date == date.today():
             today.tasks.append(t)
             today.toDB()
@@ -220,7 +220,6 @@ def morning():
         tasks_added.append((strt_date, t))
         if 'n' in input("Add more task(s)? --> 'Y'/'N'").lower():
             break
-    
     
     return tasks_added
 
@@ -251,7 +250,6 @@ def distraction_mode():
         clear_screen() 
         
         
-
 def evening():
     today = Day.fromDB(date.today())
     today.essentials = Essentials.evening()
@@ -260,52 +258,6 @@ def evening():
         print(i,'.')
         print(task,'\n')
         input('Did you complete it ?')
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def task_from_user_input():
     """
@@ -319,9 +271,53 @@ def task_from_user_input():
         day = Day.fromDB(strt_date)
         day.tasks.append(t)
         day.toDB()
-        if 'n' in input("Press enter to add more task(s) or type 'N[o]' to stop").lower(): 
+        if 'n' in input("Press enter to add more task(s) or type 'N[o]' to stop\t").lower(): 
             break
     return 'Done'
+
+distraction_mode()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #class Seeker(object):
 #    def __init__(self, lines: List[str]):
