@@ -5,6 +5,8 @@ PP4E-Examples-1.4/
 .gitconfig
 *.bak
 *.log
+*.deb
+*.tar.gz
 *~
 ~*
 _tmp*
